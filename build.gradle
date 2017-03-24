@@ -44,7 +44,7 @@ dependencies {
 uploadArchives {
     repositories {
        mavenDeployer {
-             repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
+             repository(url: "http://pik01.ii.pw.edu.pl:8081/repository/PM-Artifactory/") {
              authentication(userName: "admin", password: "admin123")
 }
              pom.version = "0.0.1-SNAPSHOT"
