@@ -3,7 +3,9 @@ buildscript {
 		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		maven{
+			url "http://pik01.ii.pw.edu.pl:8081/repository/PM-proxyRepo/"
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -22,7 +24,9 @@ jar {
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	maven{
+			url "http://pik01.ii.pw.edu.pl:8081/repository/PM-proxyRepo/"
+	}
 }
 
 
