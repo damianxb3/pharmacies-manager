@@ -3,7 +3,9 @@ buildscript {
 		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		maven{
+			url "http://pik01.ii.pw.edu.pl:8081/repository/PM-proxyRepo/"
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -22,7 +24,9 @@ jar {
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	maven{
+			url "http://pik01.ii.pw.edu.pl:8081/repository/PM-proxyRepo/"
+	}
 }
 
 
@@ -35,4 +39,17 @@ dependencies {
 	runtime('com.h2database:h2')
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+uploadArchives {
+    repositories {
+       mavenDeployer {
+             repository(url: "http://pik01.ii.pw.edu.pl:8081/repository/PM-Artifactory/") {
+             authentication(userName: "admin", password: "admin123")
+}
+             pom.version = "0.0.1-SNAPSHOT"
+             pom.artifactId = "PM"
+             pom.groupId = "com.pik01.pharmaciesmanager"
+       }
+    }
 }
