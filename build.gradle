@@ -49,7 +49,7 @@ uploadArchives {
              authentication(userName: "admin", password: "admin123")
 }
              pom.version = "0.0.1-SNAPSHOT"
-             pom.artifactId = "PM"
+             pom.artifactId = "pharmacies-manager"
              pom.groupId = "com.pik01.pharmaciesmanager"
        }
     }
