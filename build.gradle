@@ -18,6 +18,8 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'maven'
 
+processResources.dependsOn(':web-ui:npmInstall', ':web-ui:npm_run_build')
+
 jar {
 	baseName = 'pharmacies-manager'
 	version = '0.0.1-SNAPSHOT'
@@ -48,11 +50,11 @@ uploadArchives {
 	repositories {
 		mavenDeployer {
 			repository(url: "http://pik01.ii.pw.edu.pl:8081/repository/PM-Artifactory/") {
-			authentication(userName: "admin", password: "admin123")
-		}
-		pom.version = "0.0.1-SNAPSHOT"
-		pom.artifactId = "pharmacies-manager"
-		pom.groupId = "com.pik01.pharmaciesmanager"
+				authentication(userName: "admin", password: "admin123")
+			}
+			pom.version = "0.0.1-SNAPSHOT"
+			pom.artifactId = "pharmacies-manager"
+			pom.groupId = "com.pik01.pharmaciesmanager"
 		}
 	}
 }
