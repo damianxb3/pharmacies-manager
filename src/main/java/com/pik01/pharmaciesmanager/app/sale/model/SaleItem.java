@@ -17,7 +17,7 @@ public class SaleItem {
     private Sale sale;
     @ManyToOne
     private Medicine medicine;
-    private int number;
+    private int quantity;
     @ManyToOne
     private Prescription prescription;
 
@@ -45,12 +45,12 @@ public class SaleItem {
         this.medicine = medicine;
     }
 
-    public int getNumber() {
-        return number;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setQuantity(int number) {
+        this.quantity = number;
     }
 
     public Prescription getPrescription() {

@@ -1,11 +1,16 @@
 package com.pik01.pharmaciesmanager.app.medicine.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Entity
 public class Medicine {
@@ -14,8 +19,12 @@ public class Medicine {
     private Long id;
     private BigDecimal price;
     private String size;
-    @ManyToOne
-    private Medicine replacement;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "medicine_replacement",
+            joinColumns = { @JoinColumn(name = "medicine_info_id") },
+            inverseJoinColumns = { @JoinColumn(name = "replacement_info_id") }
+    )
+    private Collection<Medicine> replacements;
     private boolean isPrescriptionRequired;
     private String ingredients;
     private String usage;
@@ -45,12 +54,12 @@ public class Medicine {
         this.size = size;
     }
 
-    public Medicine getReplacement() {
-        return replacement;
+    public Collection<Medicine> getReplacements() {
+        return replacements;
     }
 
-    public void setReplacement(Medicine replacement) {
-        this.replacement = replacement;
+    public void setReplacement(Collection<Medicine> replacements) {
+        this.replacements = replacements;
     }
 
     public boolean isPrescriptionRequired() {
