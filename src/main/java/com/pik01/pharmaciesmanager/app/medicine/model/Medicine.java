@@ -1,5 +1,7 @@
 package com.pik01.pharmaciesmanager.app.medicine.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,6 +27,7 @@ public class Medicine {
             joinColumns = { @JoinColumn(name = "medicine_info_id") },
             inverseJoinColumns = { @JoinColumn(name = "replacement_info_id") }
     )
+    @JsonIgnoreProperties("replacements")
     private Collection<Medicine> replacements;
     private boolean isPrescriptionRequired;
     private String ingredients;

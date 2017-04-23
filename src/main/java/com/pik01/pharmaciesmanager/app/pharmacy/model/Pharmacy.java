@@ -12,7 +12,7 @@ public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private Address pharmacyAddress;
+    private Address address;
 
     public Long getId() {
         return id;
@@ -22,11 +22,11 @@ public class Pharmacy {
         this.id = id;
     }
 
-    public Address getPharmacyAddress() {
-        return pharmacyAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setPharmacyAddress(Address pharmacyAddress) {
-        this.pharmacyAddress = pharmacyAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
