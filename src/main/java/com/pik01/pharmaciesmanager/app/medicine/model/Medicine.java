@@ -17,6 +17,7 @@ public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String name;
     private BigDecimal price;
     private String size;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -36,6 +37,14 @@ public class Medicine {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public BigDecimal getPrice() {
