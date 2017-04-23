@@ -1,0 +1,17 @@
+<h2>Apteki</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">Wszystkie apteki:</div>
+  <table class="table">
+    <tr>
+      <td><strong>#</strong></td>
+      <td><strong>Miasto</strong></td>
+      <td><strong>Ulica</strong></td>
+      <td><strong>Numer</strong></td>
+    </tr>
+    <tr *ngFor="let pharmacy of pharmacies">
+      <td><strong>{{pharmacy.id}}</strong></td>
+      <td>{{pharmacy.address.city}}</td>
+      <td>{{pharmacy.address.street}}</td>
+      <td>{{pharmacy.address.number}}</td>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+<h2>Leki</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">Wszystkie leki:</div>
+  <table class="table">
+    <tr>
+      <td><strong>#</strong></td>
+      <td><strong>Nazwa</strong></td>
+      <td><strong>Cena</strong></td>
+      <td><strong>Wymaga recepty</strong></td>
+    </tr>
+    <tr *ngFor="let medicine of medicines">
+      <td><strong>{{medicine.id}}</strong></td>
+      <td>{{medicine.name}}</td>
+      <td>{{medicine.price}}</td>
+      <td>{{medicine.isPrescriptionRequired}}</td>
+  </table>
+</div>

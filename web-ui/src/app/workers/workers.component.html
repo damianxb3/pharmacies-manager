@@ -1,0 +1,19 @@
+<h2>Pracownicy</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">Wszyscy pracownicy:</div>
+  <table class="table">
+    <tr>
+      <td><strong>#</strong></td>
+      <td><strong>Imię</strong></td>
+      <td><strong>Nazwisko</strong></td>
+      <td><strong>Rola</strong></td>
+      <td><strong>Apteka</strong></td>
+    </tr>
+    <tr *ngFor="let worker of workers">
+      <td><strong>{{worker.id}}</strong></td>
+      <td>{{worker.firstName}}</td>
+      <td>{{worker.lastName}}</td>
+      <td>{{worker.role}}</td>
+      <td>{{worker.workplace.address.city + ' ul. ' + worker.workplace.address.street + ' ' + worker.workplace.address.number}}</td>
+  </table>
+</div>
