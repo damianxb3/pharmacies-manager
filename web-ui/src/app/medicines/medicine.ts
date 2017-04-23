@@ -4,7 +4,7 @@ export class Medicine {
   price: number;
   size: string;
   replacements: Medicine[];
-  isPrescriptionRequired: boolean;
+  prescriptionRequired: boolean;
   ingredients: string;
   usage: string;
   contraindications: string;
