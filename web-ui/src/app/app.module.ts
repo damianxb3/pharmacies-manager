@@ -32,7 +32,7 @@ export function RestangularConfigFactory (RestangularProvider) {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     MedicinesService,
