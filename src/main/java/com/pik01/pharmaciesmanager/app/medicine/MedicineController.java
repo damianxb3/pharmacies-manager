@@ -1,9 +1,8 @@
 package com.pik01.pharmaciesmanager.app.medicine;
 
 import com.pik01.pharmaciesmanager.app.medicine.model.Medicine;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +19,10 @@ public class MedicineController {
     public List<Medicine> getAll() {
         return medicineService.getAll();
     }
+
+    @PostMapping("/add")
+    public Medicine addMed(@RequestBody Medicine medicine) {
+        return medicineService.addMedicine(medicine);
+    }
+
 }
