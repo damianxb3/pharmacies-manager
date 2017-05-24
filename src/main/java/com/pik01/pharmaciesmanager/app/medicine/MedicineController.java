@@ -17,13 +17,12 @@ public class MedicineController {
 
     @GetMapping
     public List<Medicine> getAll() {
-        System.out.println("getAll component");
         return medicineService.getAll();
     }
 
     @PostMapping("/add")
     public Medicine addMed(@RequestBody Medicine medicine) {
-        System.out.println(medicine.getName());
+        System.out.println(medicine.isPrescriptionRequired());
         return medicineService.addMedicine(medicine);
     }
 

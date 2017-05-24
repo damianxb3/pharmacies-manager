@@ -20,8 +20,10 @@ export class MedicineAddComponent {
   add(name: string, price: number, size: string, ingred: string, usage: string, contra: string, pres: string): void {
     var prescription: boolean;
 
-    if(pres === "Tak")
+    if(pres === "Tak") {
       prescription = true;
+      console.log("test true");
+    }
     else
       prescription = false;
 

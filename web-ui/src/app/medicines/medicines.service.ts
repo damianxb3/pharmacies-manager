@@ -20,7 +20,7 @@ export class MedicinesService {
 
   addMedicine(med: Medicine): Promise<Medicine> {
     return this.http
-      .post('api/medicine/add', JSON.stringify({name: med.name, price: med.price, size: med.size, isPrescriptionRequired: med.prescriptionRequired, ingrediends: med.ingredients, usage: med.usage, contraindications: med.contraindications}), {headers: this.headers})
+      .post('api/medicine/add', JSON.stringify(med), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Medicine)
       .catch(this.handleError);
