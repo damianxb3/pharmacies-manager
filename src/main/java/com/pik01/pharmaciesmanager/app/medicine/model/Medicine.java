@@ -17,7 +17,7 @@ import java.util.Collection;
 @Entity
 public class Medicine {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private BigDecimal price;

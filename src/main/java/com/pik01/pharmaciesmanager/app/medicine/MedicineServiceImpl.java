@@ -17,4 +17,10 @@ public class MedicineServiceImpl implements MedicineService {
     public List<Medicine> getAll() {
         return medicineRepository.findAll();
     }
+
+    @Override
+    public Medicine addMedicine(Medicine medicine) {
+        return medicineRepository.save(medicine);
+    }
+
 }
