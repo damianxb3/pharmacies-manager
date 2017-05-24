@@ -13,6 +13,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { MedicinesService } from "./medicines/medicines.service";
 import { PharmaciesService } from "./pharmacies/pharmacies.service";
 import { WorkersService } from "./workers/workers.service";
+import { MedicineAddComponent} from './medicines/add/medicine-add.component'
+
 
 export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('/api');
@@ -24,13 +26,14 @@ export function RestangularConfigFactory (RestangularProvider) {
     MedicinesComponent,
     WorkersComponent,
     PharmaciesComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    MedicineAddComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
     MedicinesService,

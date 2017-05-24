@@ -1,0 +1,11 @@
+<div>
+<h2>Dodanie leku</h2>
+<div>
+<div>
+  <label>Nazwa: </label>
+  <input #medicineName  placeholder="Nazwa" />
+</div>
+  <button (click)="add(medicineName.value); medicineName.value=''">Dodaj lek</button>
+  <button (click)="goBack()">Powrot</button>
+</div>
+</div>

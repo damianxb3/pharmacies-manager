@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MedicineService {
     List<Medicine> getAll();
+    Medicine addMedicine(Medicine medicine);
 }
