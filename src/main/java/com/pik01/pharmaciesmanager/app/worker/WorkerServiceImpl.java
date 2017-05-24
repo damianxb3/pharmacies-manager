@@ -17,4 +17,11 @@ public class WorkerServiceImpl implements WorkerService {
     public List<Worker> getAll() {
         return workerRepository.findAll();
     }
+
+    @Override
+    public Worker addWorker(Worker worker)
+    {
+        System.out.println("Worker saving!");
+        return workerRepository.save(worker);
+    }
 }

@@ -1,9 +1,10 @@
-import {AppComponent} from "./app.component";
+import {NgModule} from '@angular/core';
 import {Routes} from "@angular/router";
 import {MedicinesComponent} from "./medicines/medicines.component";
 import {WorkersComponent} from "./workers/workers.component";
 import {PharmaciesComponent} from "./pharmacies/pharmacies.component";
 import {StatisticsComponent} from "./statistics/statistics.component";
+import {WorkerAddComponent} from './workers/add/worker-add.component';
 
 export const appRoutes: Routes = [
     {
@@ -25,5 +26,10 @@ export const appRoutes: Routes = [
     {
       path: 'statistics',
       component: StatisticsComponent
+    },
+    {
+      path: 'worker/add',
+      component: WorkerAddComponent
     }
 ];
+

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface WorkerService {
     List<Worker> getAll();
+    Worker addWorker(Worker worker);
 }

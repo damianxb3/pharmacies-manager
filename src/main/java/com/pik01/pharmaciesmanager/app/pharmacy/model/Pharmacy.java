@@ -29,4 +29,19 @@ public class Pharmacy {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    //-----------------------------------
+    public Pharmacy() {}
+    /*
+    public Pharmacy(int id)
+    {
+        this.id = (long)id;
+    }
+    */
+
+    public Pharmacy(String id)
+    {
+        this.id = Long.parseLong(id);
+    }
+    //-----------------------------------
 }
