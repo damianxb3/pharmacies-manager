@@ -18,16 +18,9 @@ export class MedicinesService {
       .catch(this.handleError);
   }
 
-  addMedicine(name: String): Promise<Medicine> {
-    var price = 10;
-    var size: String = "100";
-    var isReq: boolean = false;
-    var ind: String = "test1";
-    var usage: String = "test2";
-    var contra: String = "asdasd";
-    
+  addMedicine(med: Medicine): Promise<Medicine> {
     return this.http
-      .post('api/medicine/add', JSON.stringify({name: name, price: price, size: size, isPrescriptionRequired: isReq, ingrediends: ind, usage: usage, contraindications: contra}), {headers: this.headers})
+      .post('api/medicine/add', JSON.stringify({name: med.name, price: med.price, size: med.size, isPrescriptionRequired: med.prescriptionRequired, ingrediends: med.ingredients, usage: med.usage, contraindications: med.contraindications}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Medicine)
       .catch(this.handleError);

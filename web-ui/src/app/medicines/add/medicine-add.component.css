@@ -6,9 +6,12 @@ label {
   font-weight: bold;
 }
 input {
+  align-self: auto;
+  margin-left: 8em;
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
+  display:inline-block;
 }
 button {
   margin-top: 20px;
@@ -26,4 +29,15 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+select {
+  margin-left: 8em;
+
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
 }

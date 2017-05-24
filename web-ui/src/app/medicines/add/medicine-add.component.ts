@@ -17,8 +17,16 @@ export class MedicineAddComponent {
     private location: Location
   ) {}
 
-  add(name: String): void {
-    this.medicinesService.addMedicine(name);
+  add(name: string, price: number, size: string, ingred: string, usage: string, contra: string, pres: string): void {
+    var prescription: boolean;
+
+    if(pres === "Tak")
+      prescription = true;
+    else
+      prescription = false;
+
+    var med: Medicine =  new Medicine(name, price, size, prescription, ingred, usage, contra);
+    this.medicinesService.addMedicine(med);
   }
 
   goBack(): void {

@@ -1,11 +1,39 @@
 <div>
-<h2>Dodanie leku</h2>
+  <h2>Dodanie leku</h2>
 <div>
 <div>
-  <label>Nazwa: </label>
-  <input #medicineName  placeholder="Nazwa" />
+    <label>Nazwa:</label>
+    <input #medicineName  placeholder="Nazwa" />
 </div>
-  <button (click)="add(medicineName.value); medicineName.value=''">Dodaj lek</button>
+  <div>
+    <label>Cena: </label>
+    <input #price  placeholder="Cena" />
+  </div>
+  <div>
+    <label>Rozmiar: </label>
+    <input #size  placeholder="Rozmiar np. 30 tab, 300ml" />
+  </div>
+  <div>
+    <label>Składniki: </label>
+    <input #ing  placeholder="Składniki" />
+  </div>
+  <div>
+    <label>Użycie: </label>
+    <input #usage  placeholder="Użycie" />
+  </div>
+  <div>
+    <label>Przeciwwskazania: </label>
+    <input #contra  placeholder="Przeciwwskazania" />
+  </div>
+  <div>
+  <label>Wymagana recepta: </label>
+  <select #presc>
+    <option>Tak</option>
+    <option>Nie</option>
+  </select>
+  </div>
+  <button (click)="add(medicineName.value, price.value, size.value, ing.value, usage.value, contra.value, presc.value); medicineName.value=''">Dodaj lek</button>
   <button (click)="goBack()">Powrot</button>
 </div>
+
 </div>
