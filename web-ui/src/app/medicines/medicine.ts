@@ -4,7 +4,7 @@ export class Medicine {
   price: number;
   size: string;
   replacements: Medicine[];
-  isPrescriptionRequired: boolean;
+  prescriptionRequired: boolean;
   ingredients: string;
   usage: string;
   contraindications: string;
@@ -13,7 +13,7 @@ export class Medicine {
     name: string,
     price: number,
     size: string,
-    isPrescriptionRequired: boolean,
+    prescriptionRequired: boolean,
     ingredients: string,
     usage: string,
     contraindications: string
@@ -21,7 +21,7 @@ export class Medicine {
     this.name = name;
     this.price = price;
     this.size = size;
-    this.isPrescriptionRequired = isPrescriptionRequired;
+    this.prescriptionRequired = prescriptionRequired;
     this.ingredients = ingredients;
     this.usage = usage;
     this.contraindications = contraindications;

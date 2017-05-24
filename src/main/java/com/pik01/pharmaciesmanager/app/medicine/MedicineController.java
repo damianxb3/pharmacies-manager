@@ -22,7 +22,6 @@ public class MedicineController {
 
     @PostMapping("/add")
     public Medicine addMed(@RequestBody Medicine medicine) {
-        System.out.println(medicine.isPrescriptionRequired());
         return medicineService.addMedicine(medicine);
     }
 
