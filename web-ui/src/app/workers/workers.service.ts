@@ -5,6 +5,7 @@ import { Headers, Http } from '@angular/http';
 import { Worker } from "./worker";
 
 import 'rxjs/add/operator/toPromise'
+import {WorkerDto} from "./workerDto";
 
 @Injectable()
 export class WorkersService {
@@ -26,9 +27,9 @@ export class WorkersService {
       .catch(this.handleError);
   }
 
-  addWorker(firstName: String, lastName: String, role: String, workplace: number): Promise<Worker> {
+  addWorker(workDto: WorkerDto): Promise<Worker> {
     return this.http
-      .post('api/worker/add', JSON.stringify({firstName: firstName, lastName: lastName, role: role, workplace: workplace}), {headers: this.headers})
+      .post('api/worker/add', JSON.stringify(workDto), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Worker)
       .catch(this.handleError);

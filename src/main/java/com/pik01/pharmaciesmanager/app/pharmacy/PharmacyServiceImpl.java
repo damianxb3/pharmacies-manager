@@ -17,4 +17,11 @@ public class PharmacyServiceImpl implements PharmacyService {
     public List<Pharmacy> getAll() {
         return pharmacyRepository.findAll();
     }
+
+    @Override
+    public Pharmacy getPharmacy(Long id)
+    {
+        System.out.println("chujowe id long: " + id);
+        return pharmacyRepository.findOne(id);
+    }
 }

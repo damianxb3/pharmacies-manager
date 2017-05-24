@@ -2,6 +2,7 @@ package com.pik01.pharmaciesmanager.app.worker;
 
 import com.pik01.pharmaciesmanager.app.worker.model.Worker;
 import com.pik01.pharmaciesmanager.app.worker.model.WorkerRole;
+import com.pik01.pharmaciesmanager.app.worker.model.dto.WorkerDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,8 +36,9 @@ public class WorkerController {
     }
 
     @PostMapping("/add")
-    public Worker addMed(@RequestBody Worker worker) {
+    public Worker addMed(@RequestBody WorkerDto worker) {
         System.out.println(worker.getFirstName());
+        System.out.println(worker.getWorkplaceId());
         return workerService.addWorker(worker);
     }
 

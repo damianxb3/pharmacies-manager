@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import { PharmaciesService } from "../../pharmacies/pharmacies.service";
 import { Pharmacy } from "../../pharmacies/pharmacy";
 import {WorkersService} from '../workers.service'
+import {WorkerDto} from "../workerDto";
 
 @Component({
   selector: 'app-worker-add',
@@ -24,8 +25,9 @@ export class WorkerAddComponent implements OnInit {
      this.workersService.getRoles().then(roles => this.roles = roles);
   }
 
-    add(name: String, lastName: String, role: String, workplace: number): void {
-    this.workersService.addWorker(name,lastName ,role ,workplace);
+    add(name: string, lastName: string, role: string, workplace: number): void {
+    var workDto = new WorkerDto(name, lastName, role, workplace);
+    this.workersService.addWorker(workDto);
   }
 
     goBack(): void {
