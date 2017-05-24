@@ -1,7 +1,6 @@
 package com.pik01.pharmaciesmanager.app.worker.model;
 
 import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,7 +22,7 @@ public class Worker {
     private Pharmacy workplace;
 
     public Worker() {}
-    public Worker(/*Long id, */String firstName, String lastName, WorkerRole role, Pharmacy workplace)
+    public Worker(String firstName, String lastName, WorkerRole role, Pharmacy workplace)
     {
         //this.id = id;
         this.firstName = firstName;

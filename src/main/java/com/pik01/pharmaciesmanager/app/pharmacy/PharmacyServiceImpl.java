@@ -21,7 +21,6 @@ public class PharmacyServiceImpl implements PharmacyService {
     @Override
     public Pharmacy getPharmacy(Long id)
     {
-        System.out.println("chujowe id long: " + id);
         return pharmacyRepository.findOne(id);
     }
 }

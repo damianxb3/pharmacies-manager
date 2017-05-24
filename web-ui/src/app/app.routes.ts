@@ -32,4 +32,3 @@ export const appRoutes: Routes = [
       component: WorkerAddComponent
     }
 ];
-

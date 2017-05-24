@@ -1,36 +1,25 @@
 package com.pik01.pharmaciesmanager.app.worker.model.dto;
 
 import com.pik01.pharmaciesmanager.app.worker.model.WorkerRole;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class WorkerDto {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     @Enumerated(EnumType.STRING)
     private WorkerRole role;
-    //@ManyToOne
     private Long workplaceId;
-/*
-    public Long getId() {
-        return id;
-    }
-    */
-/*
+
     public void setId(Long id) {
         this.id = id;
     }
-*/
+
     public String getFirstName() {
         return firstName;
     }

@@ -5,7 +5,6 @@ import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
 import com.pik01.pharmaciesmanager.app.worker.model.Worker;
 import com.pik01.pharmaciesmanager.app.worker.model.dto.WorkerDto;
 import org.springframework.stereotype.Service;
-import com.pik01.pharmaciesmanager.app.pharmacy.PharmacyServiceImpl;
 
 import java.util.List;
 
@@ -27,7 +26,6 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public Worker addWorker(WorkerDto worker)
     {
-        System.out.println("Worker saving!");
         Pharmacy pharmacy = pharmacyService.getPharmacy(worker.getWorkplaceId());
         return workerRepository.save(new Worker(worker.getFirstName(), worker.getLastName(),
                 worker.getRole(), pharmacy));
