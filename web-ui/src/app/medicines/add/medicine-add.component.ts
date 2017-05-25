@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Location} from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 
 import {Medicine} from '../medicine'
 import {MedicinesService} from '../medicines.service'
@@ -12,6 +11,8 @@ import {MedicinesService} from '../medicines.service'
 })
 
 export class MedicineAddComponent {
+  added = false;
+
   constructor(
     private medicinesService: MedicinesService,
     private location: Location
@@ -27,6 +28,7 @@ export class MedicineAddComponent {
 
     var med: Medicine =  new Medicine(name, price, size, prescription, ingred, usage, contra);
     this.medicinesService.addMedicine(med);
+    this.added = true;
   }
 
   goBack(): void {
