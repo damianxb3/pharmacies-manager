@@ -17,4 +17,8 @@ export class MedicinesComponent implements OnInit {
     this.medicineService.getAll().then(medicines => this.medicines = medicines);
   }
 
+  deleteMedicine(id: number): void {
+    this.medicineService.delete(id);
+  }
+
 }

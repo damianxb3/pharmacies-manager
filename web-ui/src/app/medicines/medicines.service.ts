@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import { Http } from "@angular/http";
 import { Headers, Http } from '@angular/http';
 import { Medicine } from "./medicine";
 
@@ -24,6 +23,17 @@ export class MedicinesService {
       .toPromise()
       .then(res => res.json().data as Medicine)
       .catch(this.handleError);
+  }
+
+  delete(id: number): void {
+    const url = 'api/medicine/delete/' + id;
+    console.log("delete");
+    this.http
+      .delete(url, {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data as Medicine)
+      .catch(this.handleError);
+
   }
 
   private handleError(error: any): Promise<any> {
