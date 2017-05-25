@@ -25,4 +25,10 @@ public class MedicineController {
         return medicineService.addMedicine(medicine);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteMed(@PathVariable("id") int id ) {
+        Long idLong = new Long(id);
+        medicineService.delete(idLong);
+    }
+
 }

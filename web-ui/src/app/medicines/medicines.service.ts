@@ -27,13 +27,12 @@ export class MedicinesService {
 
   delete(id: number): void {
     const url = 'api/medicine/delete/' + id;
-    console.log("delete");
     this.http
       .delete(url, {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Medicine)
+      .then()
       .catch(this.handleError);
-
+    window.location.reload();
   }
 
   private handleError(error: any): Promise<any> {
