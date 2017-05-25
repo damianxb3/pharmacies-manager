@@ -5,6 +5,7 @@ import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,19 +16,18 @@ public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     private String firstName;
     private String lastName;
+
     @Enumerated(EnumType.STRING)
     private WorkerRole role;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Pharmacy workplace;
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
