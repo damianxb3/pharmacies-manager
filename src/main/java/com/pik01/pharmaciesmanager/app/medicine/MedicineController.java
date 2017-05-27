@@ -20,6 +20,15 @@ public class MedicineController {
         return medicineService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Medicine get(@PathVariable("id") int id) {
+        Long idLong = new Long(id);
+        return medicineService.get(idLong);
+    }
+
+    @PutMapping("/modify")
+    public Medicine modify(@RequestBody Medicine medicine) { return medicineService.modify(medicine); }
+
     @PostMapping("/add")
     public Medicine addMed(@RequestBody Medicine medicine) {
         return medicineService.addMedicine(medicine);

@@ -18,6 +18,23 @@ export class MedicinesService {
       .catch(this.handleError);
   }
 
+  get(id: number): Promise<Medicine> {
+    const url = '/api/medicine/' + id;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(response => response.json() as Medicine)
+      .catch(this.handleError);
+  }
+
+  modifyMedicine(med: Medicine): void {
+    this.http
+      .put('api/medicine/modify', JSON.stringify(med), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data as Medicine)
+      .catch(this.handleError);
+  }
+
   addMedicine(med: Medicine): Promise<Medicine> {
     return this.http
       .post('api/medicine/add', JSON.stringify(med), {headers: this.headers})

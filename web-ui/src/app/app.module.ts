@@ -14,6 +14,7 @@ import { MedicinesService } from "./medicines/medicines.service";
 import { PharmaciesService } from "./pharmacies/pharmacies.service";
 import { WorkersService } from "./workers/workers.service";
 import { MedicineAddComponent} from './medicines/add/medicine-add.component'
+import {MedicineModifyComponent} from "./medicines/modify/medicine-modify.component";
 
 
 export function RestangularConfigFactory (RestangularProvider) {
@@ -27,7 +28,8 @@ export function RestangularConfigFactory (RestangularProvider) {
     WorkersComponent,
     PharmaciesComponent,
     StatisticsComponent,
-    MedicineAddComponent
+    MedicineAddComponent,
+    MedicineModifyComponent
   ],
   imports: [
     BrowserModule,
