@@ -21,14 +21,7 @@ export class MedicinesComponent implements OnInit {
   deleteMedicine(id: number): void {
     this.medicineService.delete(id)
       .then(() =>
-      {
-        for(let i = 0 ; i < this.medicines.length ; ++i) {
-          if(this.medicines[i].id  === id) {
-            this.medicines.splice(i, 1);
-            break;
-          }
-        }
-      });
+      { this.medicines = this.medicines.filter(medicine => medicine.id !== id); });
 
   }
 
