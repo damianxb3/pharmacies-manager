@@ -25,14 +25,13 @@ export class MedicinesService {
       .catch(this.handleError);
   }
 
-  delete(id: number): void {
+  delete(id: number): Promise<void> {
     const url = 'api/medicine/delete/' + id;
-    this.http
+    return this.http
       .delete(url, {headers: this.headers})
       .toPromise()
-      .then()
+      .then(() => {} )
       .catch(this.handleError);
-    window.location.reload();
   }
 
   private handleError(error: any): Promise<any> {

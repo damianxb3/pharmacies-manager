@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Medicine} from "./medicine";
 import {MedicinesService} from "./medicines.service";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-medicines',
@@ -18,7 +19,17 @@ export class MedicinesComponent implements OnInit {
   }
 
   deleteMedicine(id: number): void {
-    this.medicineService.delete(id);
+    this.medicineService.delete(id)
+      .then(() =>
+      {
+        for(let i = 0 ; i < this.medicines.length ; ++i) {
+          if(this.medicines[i].id  === id) {
+            this.medicines.splice(i, 1);
+            break;
+          }
+        }
+      });
+
   }
 
 }
