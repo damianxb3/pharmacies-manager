@@ -1,7 +1,6 @@
 package com.pik01.pharmaciesmanager.app.worker.model;
 
 import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,7 +13,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Worker {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -25,6 +24,16 @@ public class Worker {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Pharmacy workplace;
+
+    public Worker() {}
+    public Worker(String firstName, String lastName, WorkerRole role, Pharmacy workplace)
+    {
+        //this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+        this.workplace = workplace;
+    }
 
     public Long getId() {
         return id;
