@@ -1,0 +1,39 @@
+<div>
+  <h2>Modyfikacja leku</h2>
+  <div>
+    <div>
+      <label>Nazwa:</label>
+      <input [(ngModel)]="medicine.name" #name />
+    </div>
+    <div>
+      <label>Cena: </label>
+      <input [(ngModel)]="medicine.price" #price />
+    </div>
+    <div>
+      <label>Rozmiar: </label>
+      <input [(ngModel)]="medicine.size" #size  />
+    </div>
+    <div>
+      <label>Składniki: </label>
+      <input [(ngModel)]="medicine.ingredients" #ing  />
+    </div>
+    <div>
+      <label>Użycie: </label>
+      <input [(ngModel)]="medicine.usage" #usage  />
+    </div>
+    <div>
+      <label>Przeciwwskazania: </label>
+      <input [(ngModel)]="medicine.contraindications" #contra  />
+    </div>
+    <div>
+      <label>Wymagana recepta: </label>
+      <select   #presc>
+        <option >Tak</option>
+        <option >Nie</option>
+      </select>
+    </div>
+    <button (click)="modify(presc.value)">Modyfikuj</button>
+    <button (click)="goBack()">Powrot</button>
+  </div>
+
+</div>
