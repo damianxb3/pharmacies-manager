@@ -1,13 +1,14 @@
 <div>
   <h2>Dodanie leku</h2>
 <div>
-<div>
+  <div *ngIf="added" class="alert alert-success" role="alert">Dodano lek do bazy</div>
+  <div>
     <label>Nazwa:</label>
     <input #medicineName  placeholder="Nazwa" />
 </div>
   <div>
     <label>Cena: </label>
-    <input #price  placeholder="Cena" />
+    <input #price  placeholder="Cena" value="0"/>
   </div>
   <div>
     <label>Rozmiar: </label>
@@ -32,7 +33,13 @@
     <option>Nie</option>
   </select>
   </div>
-  <button (click)="add(medicineName.value, price.value, size.value, ing.value, usage.value, contra.value, presc.value); medicineName.value=''">Dodaj lek</button>
+  <button (click)="add(medicineName.value, price.value, size.value, ing.value, usage.value, contra.value, presc.value);
+    medicineName.value='';
+    price.value='0';
+    size.value='';
+    ing.value='';
+    usage.value='';
+    contra.value='' ">Dodaj lek</button>
   <button (click)="goBack()">Powrot</button>
 </div>
 
