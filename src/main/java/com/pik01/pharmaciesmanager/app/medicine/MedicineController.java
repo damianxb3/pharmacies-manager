@@ -1,7 +1,6 @@
 package com.pik01.pharmaciesmanager.app.medicine;
 
 import com.pik01.pharmaciesmanager.app.medicine.model.Medicine;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class MedicineController {
 
     @GetMapping("/{id}")
     public Medicine get(@PathVariable("id") int id) {
-        Long idLong = new Long(id);
+        Long idLong = Long.valueOf(id);
         return medicineService.get(idLong);
     }
 

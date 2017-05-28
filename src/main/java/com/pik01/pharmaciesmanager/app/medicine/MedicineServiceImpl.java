@@ -2,8 +2,6 @@ package com.pik01.pharmaciesmanager.app.medicine;
 
 import com.pik01.pharmaciesmanager.app.medicine.model.Medicine;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
