@@ -24,8 +24,4 @@ export class MedicineAddComponent {
     this.medicinesService.addMedicine(this.medicine)
       .then(() => this.added = true);
   }
-
-  goBack(): void {
-    this.location.back();
-  }
 }
