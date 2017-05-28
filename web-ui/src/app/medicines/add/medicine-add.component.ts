@@ -27,8 +27,8 @@ export class MedicineAddComponent {
       prescription = false;
 
     var med: Medicine =  new Medicine(name, price, size, prescription, ingred, usage, contra);
-    this.medicinesService.addMedicine(med);
-    this.added = true;
+    this.medicinesService.addMedicine(med)
+      .then( () => { this.added = true; });
   }
 
   goBack(): void {
