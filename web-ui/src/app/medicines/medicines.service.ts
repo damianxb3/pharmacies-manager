@@ -19,7 +19,7 @@ export class MedicinesService {
   }
 
   addMedicine(med: Medicine): Promise<Medicine> {
-    return this.http
+     return this.http
       .post('api/medicine/add', JSON.stringify(med), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Medicine)

@@ -8,17 +8,14 @@ import javax.persistence.Id;
 @Entity
 public class Prescription {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String serialNumber;
     private DoctorInfo doctorInfo;
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getSerialNumber() {
