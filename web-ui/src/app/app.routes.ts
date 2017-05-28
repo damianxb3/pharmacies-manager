@@ -5,6 +5,7 @@ import {WorkersComponent} from "./workers/workers.component";
 import {PharmaciesComponent} from "./pharmacies/pharmacies.component";
 import {StatisticsComponent} from "./statistics/statistics.component";
 import {WorkerAddComponent} from './workers/add/worker-add.component';
+import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
 
 export const appRoutes: Routes = [
     {
@@ -14,6 +15,10 @@ export const appRoutes: Routes = [
     {
       path: 'medicines',
       component: MedicinesComponent
+    },
+    {
+      path: 'medicine/add',
+      component: MedicineAddComponent
     },
     {
       path: 'workers',
