@@ -18,10 +18,12 @@ import java.util.Collection;
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private BigDecimal price;
     private String size;
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "medicine_replacement",
             joinColumns = { @JoinColumn(name = "medicine_info_id") },
@@ -29,6 +31,7 @@ public class Medicine {
     )
     @JsonIgnoreProperties("replacements")
     private Collection<Medicine> replacements;
+
     private boolean isPrescriptionRequired;
     private String ingredients;
     private String usage;
@@ -36,10 +39,6 @@ public class Medicine {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

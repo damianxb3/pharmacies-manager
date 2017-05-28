@@ -1,0 +1,36 @@
+<div>
+  <h2>Dodanie pracownika</h2>
+  <div>
+    <div>
+      <label>Imię: </label>
+      <input #workerFirstName  placeholder="Wprowadź imię..." />
+    </div>
+  </div>
+  <div>
+    <div>
+      <label>Nazwisko: </label>
+      <input #workerLastName  placeholder="Wprowadź nazwisko..." />
+    </div>
+
+    <div class="column small-12 large-2">
+      <label class="sbw_light">Rola:</label><br />
+      <select #roleName>
+        <option *ngFor="let role of roles" value= {{role}}>
+          {{role}}
+        </option>
+      </select>
+    </div>
+
+    <div class="column small-12 large-2">
+      <label class="sbw_light">Apteka:</label><br />
+      <select #pharmacyId>
+        <option *ngFor="let pharmacy of pharmacies" value= {{pharmacy.id}}>
+          {{pharmacy.address.city + ' ul. ' + pharmacy.address.street + ' ' + pharmacy.address.number}}
+        </option>
+      </select>
+    </div>
+
+    <button (click)="add(workerFirstName.value, workerLastName.value, roleName.value, pharmacyId.value); workerFirstName.value=workerLastName.value=''">Dodaj pracowanika</button>
+    <button (click)="goBack()">Powrot</button>
+  </div>
+</div>

@@ -10,16 +10,13 @@ import javax.persistence.Id;
 @Entity
 public class Pharmacy {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Address address;
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Address getAddress() {
@@ -28,5 +25,12 @@ public class Pharmacy {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Pharmacy() {}
+
+    public Pharmacy(String id)
+    {
+        this.id = Long.parseLong(id);
     }
 }

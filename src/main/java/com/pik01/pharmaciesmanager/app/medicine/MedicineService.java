@@ -9,4 +9,5 @@ public interface MedicineService {
     Medicine get(Long id);
     Medicine modify(Medicine medicine);
     Medicine addMedicine(Medicine medicine);
+    void delete(Long id);
 }

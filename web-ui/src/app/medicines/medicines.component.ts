@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Medicine} from "./medicine";
 import {MedicinesService} from "./medicines.service";
 import {Router} from "@angular/router";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-medicines',
@@ -19,8 +20,14 @@ export class MedicinesComponent implements OnInit {
     this.medicineService.getAll().then(medicines => this.medicines = medicines);
   }
 
+
   modify(id: number): void {
       this.router.navigate(['/medicine/modify/', id]);
+  }
+  deleteMedicine(id: number): void {
+    this.medicineService.delete(id)
+      .then(() =>
+      { this.medicines = this.medicines.filter(medicine => medicine.id !== id); });
   }
 
 }
