@@ -14,6 +14,7 @@ import { MedicinesService } from "./medicines/medicines.service";
 import { PharmaciesService } from "./pharmacies/pharmacies.service";
 import { WorkersService } from "./workers/workers.service";
 import { WorkerAddComponent} from './workers/add/worker-add.component'
+import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
 
 export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('/api');
@@ -23,6 +24,7 @@ export function RestangularConfigFactory (RestangularProvider) {
   declarations: [
     AppComponent,
     MedicinesComponent,
+    MedicineAddComponent,
     WorkersComponent,
     PharmaciesComponent,
     StatisticsComponent,
