@@ -3,7 +3,6 @@ package com.pik01.pharmaciesmanager.app.medicine.model;
 import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +16,10 @@ public class MedicineItem {
 
     private int number;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Pharmacy pharmacy;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Medicine medicine;
 
     public Long getId() {
