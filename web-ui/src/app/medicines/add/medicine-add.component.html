@@ -1,46 +1,39 @@
-<div>
-  <h2>Dodanie leku</h2>
-<div>
-  <div *ngIf="added" class="alert alert-success" role="alert">Dodano lek do bazy</div>
-  <div>
-    <label>Nazwa:</label>
-    <input #medicineName  placeholder="Nazwa" />
-</div>
-  <div>
-    <label>Cena: </label>
-    <input #price  placeholder="Cena" value="0"/>
-  </div>
-  <div>
-    <label>Rozmiar: </label>
-    <input #size  placeholder="Rozmiar np. 30 tab, 300ml" />
-  </div>
-  <div>
-    <label>Składniki: </label>
-    <input #ing  placeholder="Składniki" />
-  </div>
-  <div>
-    <label>Użycie: </label>
-    <input #usage  placeholder="Użycie" />
-  </div>
-  <div>
-    <label>Przeciwwskazania: </label>
-    <input #contra  placeholder="Przeciwwskazania" />
-  </div>
-  <div>
-  <label>Wymagana recepta: </label>
-  <select #presc>
-    <option>Tak</option>
-    <option>Nie</option>
-  </select>
-  </div>
-  <button (click)="add(medicineName.value, price.value, size.value, ing.value, usage.value, contra.value, presc.value);
-    medicineName.value='';
-    price.value='0';
-    size.value='';
-    ing.value='';
-    usage.value='';
-    contra.value='' ">Dodaj lek</button>
-  <button (click)="goBack()">Powrot</button>
-</div>
-
+<div class="container">
+  <h1>Dodaj lek</h1>
+  <form (ngSubmit)="onSubmit()" #addMedicineForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nazwa</label>
+      <input class="form-control" [(ngModel)]="medicine.name" id="name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="price">Cena</label>
+      <input class="form-control" [(ngModel)]="medicine.price" id="price" name="price" required/>
+    </div>
+    <div class="form-group">
+      <label for="size">Rozmiar</label>
+      <input class="form-control" [(ngModel)]="medicine.size" id="size" name="size" required />
+      <small id="sizeHelp" class="form-text text-muted">np. 30 tab, 300ml</small>
+    </div>
+    <div class="form-group">
+      <label for="ingredients">Składniki</label>
+      <input class="form-control" [(ngModel)]="medicine.ingredients" id="ingredients" name="ingredients" />
+    </div>
+    <div class="form-group">
+      <label for="usage">Użycie</label>
+      <input class="form-control" [(ngModel)]="medicine.usage" id="usage" name="usage" />
+    </div>
+    <div class="form-group">
+      <label for="contraindications">Przeciwwskazania</label>
+      <input class="form-control" [(ngModel)]="medicine.contraindications" id="contraindications" name="contraindications" />
+    </div>
+    <div class="form-group">
+      <label for="prescription">Czy wymaga recepty?</label>
+      <select class="form-control" [(ngModel)]="medicine.prescriptionRequired" id="prescription" name="prescription" required>
+        <option value="true">Tak</option>
+        <option value="false">Nie</option>
+      </select>
+    </div>
+    <div *ngIf="added" class="alert alert-success" role="alert">Lek został dodany</div>
+    <button type="submit" class="btn btn-success" [disabled]="!addMedicineForm.form.valid">Submit</button>
+  </form>
 </div>

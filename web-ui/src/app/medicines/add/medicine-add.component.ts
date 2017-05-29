@@ -12,26 +12,16 @@ import {MedicinesService} from '../medicines.service'
 
 export class MedicineAddComponent {
   added = false;
+  medicine: Medicine = new Medicine();
 
   constructor(
     private medicinesService: MedicinesService,
     private location: Location
   ) {}
 
-  add(name: string, price: number, size: string, ingred: string, usage: string, contra: string, pres: string): void {
-    var prescription: boolean;
-
-    if(pres === "Tak")
-      prescription = true;
-    else
-      prescription = false;
-
-    var med: Medicine =  new Medicine(name, price, size, prescription, ingred, usage, contra);
-    this.medicinesService.addMedicine(med)
-      .then( () => { this.added = true; });
-  }
-
-  goBack(): void {
-    this.location.back();
+  onSubmit(): void {
+    console.log(this.medicine);
+    this.medicinesService.addMedicine(this.medicine)
+      .then(() => this.added = true);
   }
 }

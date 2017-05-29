@@ -3,7 +3,6 @@ package com.pik01.pharmaciesmanager.app.sale.model;
 import com.pik01.pharmaciesmanager.app.medicine.model.Medicine;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,15 +14,15 @@ public class SaleItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Sale sale;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Medicine medicine;
 
     private int quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Prescription prescription;
 
     public Long getId() {

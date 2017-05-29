@@ -3,7 +3,6 @@ package com.pik01.pharmaciesmanager.app.sale.model;
 import com.pik01.pharmaciesmanager.app.worker.model.Worker;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +19,7 @@ public class Sale {
     private LocalDateTime date;
     private BigDecimal value;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Worker seller;
 
     public Long getId() {

@@ -1,10 +1,11 @@
 package com.pik01.pharmaciesmanager.app.worker.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pik01.pharmaciesmanager.app.pharmacy.model.Pharmacy;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,13 +23,15 @@ public class Worker {
     @Enumerated(EnumType.STRING)
     private WorkerRole role;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @ManyToOne
     private Pharmacy workplace;
 
-    public Worker() {}
+    public Worker() {
+    }
+
     public Worker(String firstName, String lastName, WorkerRole role, Pharmacy workplace)
     {
-        //this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
