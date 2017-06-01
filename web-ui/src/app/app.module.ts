@@ -16,6 +16,8 @@ import { WorkersService } from "./workers/workers.service";
 import {MedicineModifyComponent} from "./medicines/modify/medicine-modify.component";
 import { WorkerAddComponent} from './workers/add/worker-add.component'
 import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
+import {MedicineItemComponent} from "./medicineItem/medicineItem.component";
+import {MedicineItemService} from "./medicineItem/medicineItem.service";
 
 export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('/api');
@@ -31,7 +33,8 @@ export function RestangularConfigFactory (RestangularProvider) {
     StatisticsComponent,
     MedicineAddComponent,
     MedicineModifyComponent,
-    WorkerAddComponent
+    WorkerAddComponent,
+    MedicineItemComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ export function RestangularConfigFactory (RestangularProvider) {
   providers: [
     MedicinesService,
     PharmaciesService,
-    WorkersService
+    WorkersService,
+    MedicineItemService
   ],
   bootstrap: [AppComponent]
 })

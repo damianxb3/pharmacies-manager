@@ -1,1 +1,22 @@
-s
+<div class="column small-12 large-2">
+  <label class="sbw_light" width="20">Apteka:</label><br/>
+  <select #pharmacyId (change)="getMedicineItem(1)">
+    <option *ngFor="let pharmacy of pharmacies" value={{pharmacy.id}} >
+      {{pharmacy.address.city + ' ul. ' + pharmacy.address.street + ' ' + pharmacy.address.number}}
+    </option>
+  </select>
+</div>
+<table class="table">
+  <tr>
+    <td><strong>#</strong></td>
+    <td><strong>Nazwa</strong></td>
+    <td><strong>Ilość</strong></td>
+  </tr>
+  <tr *ngFor="let medicineItem of medicineItems">
+    <td><strong>{{medicineItem.id}}</strong></td>
+    <td>{{medicineItem.medicine.name}}</td>
+    <td>{{medicineItem.quantity}}</td>
+  </tr>
+</table>
+
+
