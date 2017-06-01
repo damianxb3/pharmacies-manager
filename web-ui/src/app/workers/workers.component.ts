@@ -18,7 +18,7 @@ export class WorkersComponent implements OnInit {
 
   deleteWorker(id: number) {
     this.workersService.delete(id)
-      .then(() => this.loadWorkers())
+      .then(() => this.workers = this.workers.filter(worker => worker.id !== id))
   }
 
   private loadWorkers() {
