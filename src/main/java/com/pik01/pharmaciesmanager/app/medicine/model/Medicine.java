@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +23,7 @@ public class Medicine {
     private BigDecimal price;
     private String size;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "medicine_replacement",
             joinColumns = { @JoinColumn(name = "medicine_info_id") },
             inverseJoinColumns = { @JoinColumn(name = "replacement_info_id") }

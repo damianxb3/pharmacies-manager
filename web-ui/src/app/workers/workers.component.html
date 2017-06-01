@@ -15,8 +15,15 @@
       <td>{{worker.lastName}}</td>
       <td>{{worker.role}}</td>
       <td>{{worker.workplace.address.city + ' ul. ' + worker.workplace.address.street + ' ' + worker.workplace.address.number}}</td>
+      <td>
+        <button class="btn btn-default" (click)="deleteWorker(worker.id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+      </td>
   </table>
 </div><div>
-  <li class="nav-item"><a class="nav-link" routerLink="/worker/add" routerLinkActive="active">Dodaj pracownika</a></li>
+  <a class="nav-link" routerLink="/worker/add" routerLinkActive="active">
+    <button class="btn btn-default">Dodaj pracownika</button>
+  </a>
 </div>
 

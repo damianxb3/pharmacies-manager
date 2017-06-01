@@ -3,8 +3,9 @@ package com.pik01.pharmaciesmanager.app.worker;
 import com.pik01.pharmaciesmanager.app.worker.model.Worker;
 import com.pik01.pharmaciesmanager.app.worker.model.WorkerRole;
 import com.pik01.pharmaciesmanager.app.worker.model.dto.WorkerDto;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,16 +31,18 @@ public class WorkerController {
 
     @GetMapping("/roles")
     public List<String> getRoles() {
-        List<String> rolesNames = Stream.of(WorkerRole.values())
+        return Stream.of(WorkerRole.values())
                 .map(WorkerRole::name)
                 .collect(Collectors.toList());
-        return rolesNames;
     }
 
     @PostMapping("/add")
-    public Worker addMed(@RequestBody WorkerDto worker) {
-        System.out.println(worker.getFirstName());
-        System.out.println(worker.getWorkplaceId());
+    public Worker addWorker(@RequestBody WorkerDto worker) {
         return workerService.addWorker(worker);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteWorker(@PathVariable long id) {
+        workerService.deleteWorker(id);
     }
 }

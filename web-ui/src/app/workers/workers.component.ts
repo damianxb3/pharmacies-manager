@@ -13,6 +13,15 @@ export class WorkersComponent implements OnInit {
   constructor(private workersService: WorkersService) { }
 
   ngOnInit() {
+    this.loadWorkers();
+  }
+
+  deleteWorker(id: number) {
+    this.workersService.delete(id)
+      .then(() => this.loadWorkers())
+  }
+
+  private loadWorkers() {
     this.workersService.getAll().then(workers => this.workers = workers);
   }
 
