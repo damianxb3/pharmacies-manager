@@ -35,5 +35,6 @@
     </div>
     <div *ngIf="added" class="alert alert-success" role="alert">Lek został dodany</div>
     <button type="submit" class="btn btn-success" [disabled]="!addMedicineForm.form.valid">Submit</button>
+    <button class="btn btn-info" (click)="goBack()">Powrót</button>
   </form>
 </div>

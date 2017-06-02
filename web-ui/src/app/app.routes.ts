@@ -6,6 +6,7 @@ import {StatisticsComponent} from "./statistics/statistics.component";
 import {MedicineModifyComponent} from "./medicines/modify/medicine-modify.component";
 import {WorkerAddComponent} from "./workers/add/worker-add.component";
 import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
+import {MedicineItemComponent} from "./medicineItem/medicineItem.component";
 
 export const appRoutes: Routes = [
     {
@@ -43,5 +44,9 @@ export const appRoutes: Routes = [
     {
         path: 'worker/add',
         component: WorkerAddComponent
+    },
+    {
+        path: 'medicineItem',
+        component: MedicineItemComponent
     }
 ];

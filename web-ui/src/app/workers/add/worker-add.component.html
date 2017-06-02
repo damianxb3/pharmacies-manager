@@ -24,7 +24,7 @@
     <div class="column small-12 large-2">
       <label class="sbw_light">Apteka:</label><br />
       <select #pharmacyId>
-        <option *ngFor="let pharmacy of pharmacies" value= {{pharmacy.id}}>
+        <option *ngFor="let pharmacy of pharmacies" value= {{pharmacy.id}} >
           {{pharmacy.address.city + ' ul. ' + pharmacy.address.street + ' ' + pharmacy.address.number}}
         </option>
       </select>
