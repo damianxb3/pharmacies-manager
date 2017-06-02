@@ -19,8 +19,17 @@ public class PharmacyServiceImpl implements PharmacyService {
     }
 
     @Override
-    public Pharmacy getPharmacy(Long id)
-    {
+    public Pharmacy getPharmacy(Long id) {
         return pharmacyRepository.findOne(id);
+    }
+
+    @Override
+    public Pharmacy addPharmacy(Pharmacy pharmacy) {
+        return pharmacyRepository.save(pharmacy);
+    }
+
+    @Override
+    public void deletePharmacy(long id) {
+        pharmacyRepository.delete(id);
     }
 }

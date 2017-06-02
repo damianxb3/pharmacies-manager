@@ -13,5 +13,13 @@
       <td>{{pharmacy.address.city}}</td>
       <td>{{pharmacy.address.street}}</td>
       <td>{{pharmacy.address.number}}</td>
+      <td><button class="button" class="btn btn-default" (click)="deletePharmacy(pharmacy.id)">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      </button></td>
   </table>
+  <div class="col-md-2 col-md-offset-5 mt-8">
+  <a id="addPharmacy" class="nav-link" routerLink="/pharmacies/add" routerLinkActive="active">
+    <button class="btn btn-default">Dodaj nową aptekę</button>
+  </a>
+  </div>
 </div>
