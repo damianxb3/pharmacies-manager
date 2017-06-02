@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import {Medicine} from "./medicine";
 import {MedicinesService} from "./medicines.service";
 import {Router} from "@angular/router";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-medicines',
@@ -12,12 +11,17 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class MedicinesComponent implements OnInit {
   medicines: Medicine[];
+  selected = false;
+  replacements: Medicine[];
+  selectedMedicine: Medicine;
 
   constructor(private medicineService: MedicinesService,
               private router: Router) { }
 
   ngOnInit() {
-    this.medicineService.getAll().then(medicines => this.medicines = medicines);
+    this.medicineService.getAll().then(medicines => {
+      this.medicines = medicines;
+    });
   }
 
 
@@ -28,6 +32,13 @@ export class MedicinesComponent implements OnInit {
     this.medicineService.delete(id)
       .then(() =>
       { this.medicines = this.medicines.filter(medicine => medicine.id !== id); });
+  }
+
+  showReplacements(medicine: Medicine): void {
+    this.selectedMedicine = medicine;
+    console.log(medicine.replacements);
+    this.replacements = medicine.replacements;
+    this.selected = true;
   }
 
 }
