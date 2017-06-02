@@ -38,7 +38,7 @@ export class WorkersService {
 
 
   delete(id: number): Promise<any> {
-    return this.http.delete('api/worker/deletePharmacy/' + id)
+    return this.http.delete('api/worker/delete/' + id)
       .toPromise();
   }
 
