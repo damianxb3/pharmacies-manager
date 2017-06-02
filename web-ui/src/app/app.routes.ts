@@ -7,46 +7,47 @@ import {MedicineModifyComponent} from "./medicines/modify/medicine-modify.compon
 import {WorkerAddComponent} from "./workers/add/worker-add.component";
 import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
 import {MedicineItemComponent} from "./medicineItem/medicineItem.component";
+import {PharmacyAddComponent} from "./pharmacies/add/pharmacy-add.component";
 
 export const appRoutes: Routes = [
-    {
-      path: 'home',
-      redirectTo: 'medicines'
-    },
-    {
-      path: 'medicines',
-      component: MedicinesComponent
-    },
-    {
-      path: 'medicine/add',
-      component: MedicineAddComponent
-    },
-    {
-      path: 'workers',
-      component: WorkersComponent
-    },
-    {
-      path: 'pharmacies',
-      component: PharmaciesComponent
-    },
-    {
-      path: 'statistics',
-      component: StatisticsComponent
-    },
-    {
-      path: 'medicine/add',
-      component: MedicineAddComponent
-    },
-    {
-        path: 'medicine/modify/:id',
-        component: MedicineModifyComponent
-    },
-    {
-        path: 'worker/add',
-        component: WorkerAddComponent
-    },
-    {
-        path: 'medicineItem',
-        component: MedicineItemComponent
-    }
+  {
+    path: 'home',
+    redirectTo: 'medicines'
+  },
+  {
+    path: 'medicines',
+    component: MedicinesComponent
+  },
+  {
+    path: 'medicine/add',
+    component: MedicineAddComponent
+  },
+  {
+    path: 'medicine/modify/:id',
+    component: MedicineModifyComponent
+  },
+  {
+    path: 'medicineItem',
+    component: MedicineItemComponent
+  },
+  {
+    path: 'workers',
+    component: WorkersComponent
+  },
+  {
+    path: 'worker/add',
+    component: WorkerAddComponent
+  },
+  {
+    path: 'pharmacies',
+    component: PharmaciesComponent
+  },
+  {
+    path: 'pharmacies/add',
+    component: PharmacyAddComponent
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent
+  }
 ];

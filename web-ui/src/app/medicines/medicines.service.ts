@@ -43,7 +43,7 @@ export class MedicinesService {
   }
 
   delete(id: number): Promise<void> {
-    const url = 'api/medicine/delete/' + id;
+    const url = 'api/medicine/deletePharmacy/' + id;
     return this.http
       .delete(url, {headers: this.headers})
       .toPromise()

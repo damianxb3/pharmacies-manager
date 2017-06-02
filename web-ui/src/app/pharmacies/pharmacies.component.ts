@@ -16,4 +16,8 @@ export class PharmaciesComponent implements OnInit {
     this.pharmaciesService.getAll().then(pharmacies => this.pharmacies = pharmacies);
   }
 
+  deletePharmacy(pharmacyId: number) {
+    this.pharmaciesService.deletePharmacy(pharmacyId)
+      .then(() => this.pharmacies = this.pharmacies.filter(pharmacy => pharmacy.id !== pharmacyId));
+  }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface PharmacyService {
     List<Pharmacy> getAll();
     Pharmacy getPharmacy(Long id);
+    Pharmacy addPharmacy(Pharmacy pharmacy);
+    void deletePharmacy(long id);
 }
