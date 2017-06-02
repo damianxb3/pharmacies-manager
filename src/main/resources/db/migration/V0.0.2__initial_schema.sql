@@ -1,0 +1,1 @@
+ALTER TABLE medicine_item RENAME COLUMN medicine_info_id TO medicine_id;
