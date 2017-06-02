@@ -8,4 +8,5 @@ import java.util.List;
 public interface WorkerService {
     List<Worker> getAll();
     Worker addWorker(WorkerDto worker);
+    void deleteWorker(long id);
 }

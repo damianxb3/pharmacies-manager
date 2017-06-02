@@ -24,10 +24,14 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public Worker addWorker(WorkerDto worker)
-    {
+    public Worker addWorker(WorkerDto worker) {
         Pharmacy pharmacy = pharmacyService.getPharmacy(worker.getWorkplaceId());
         return workerRepository.save(new Worker(worker.getFirstName(), worker.getLastName(),
                 worker.getRole(), pharmacy));
+    }
+
+    @Override
+    public void deleteWorker(long id) {
+        workerRepository.delete(id);
     }
 }
