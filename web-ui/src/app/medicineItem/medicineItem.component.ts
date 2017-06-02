@@ -14,37 +14,23 @@ import {MedicinesService} from "../medicines/medicines.service";
 })
 export class MedicineItemComponent implements OnInit{
 
-  selected = false;
+  selected: Pharmacy;
   pharmacies: Pharmacy[];
   medicineItems: MedicineItem[];
+
   constructor(private medicineItemService: MedicineItemService,
-              private medicineService: MedicinesService,
-              private pharmaciesService: PharmaciesService,
-              private router: Router) {
-  }
+              private pharmaciesService: PharmaciesService) { }
 
   ngOnInit(){
-    this.pharmaciesService.getAll().then(pharmacies => this.pharmacies = pharmacies);
+    this.pharmaciesService.getAll().then(pharmacies => {
+      this.pharmacies = pharmacies;
+      this.selected = this.pharmacies[0];
+      this.getMedicineItem();
+    });
   }
 
-  getMedicineItem(id: number): void {
-    console.log("zmiana "+id);
-    this.medicineItemService.getList(id)
-      .then(medicineItems => {
-        this.medicineItems = medicineItems;
-        this.selected = true;
-        console.log(medicineItems[0].medicine.id)
-      });
-
+  getMedicineItem(): void {
+    this.medicineItemService.getList(this.selected.id)
+      .then(medicineItems => this.medicineItems = medicineItems );
   }
-
-  insertNames(): void {
-    for(let x of this.medicineItems) {
-        this.medicineService.get(x.medicine.id)
-          .then(medicine => x.medicine = medicine);
-    }
-  }
-
-
-
 }

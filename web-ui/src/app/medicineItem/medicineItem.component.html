@@ -1,7 +1,7 @@
 <div class="column small-12 large-2">
   <label class="sbw_light" width="20">Apteka:</label><br/>
-  <select #pharmacyId (change)="getMedicineItem(1)">
-    <option *ngFor="let pharmacy of pharmacies" value={{pharmacy.id}} >
+  <select #pharmacyId [(ngModel)]="selected" (change)="getMedicineItem()">
+    <option *ngFor="let pharmacy of pharmacies" [ngValue]="pharmacy" >
       {{pharmacy.address.city + ' ul. ' + pharmacy.address.street + ' ' + pharmacy.address.number}}
     </option>
   </select>

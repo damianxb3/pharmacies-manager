@@ -15,7 +15,6 @@ public class MedicineItemServiceImpl implements MedicineItemService {
 
     public List<MedicineItem> getByPhar(long id) {
        return this.medicineItemRepository.findByPharmacy_Id(id);
-       // return this.medicineItemRepository.findAll();
     }
 
 }

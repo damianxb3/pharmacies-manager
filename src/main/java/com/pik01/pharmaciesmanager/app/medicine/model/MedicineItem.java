@@ -14,7 +14,7 @@ public class MedicineItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+    private int quantity;
 
     @ManyToOne
     private Pharmacy pharmacy;
@@ -26,12 +26,12 @@ public class MedicineItem {
         return id;
     }
 
-    public int getNumber() {
-        return number;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Pharmacy getPharmacy() {
