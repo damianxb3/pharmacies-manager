@@ -1,4 +1,4 @@
-import { Address } from "../shared/Address";
+import { Address } from "../shared/address";
 
 export class Pharmacy {
   id: number;
