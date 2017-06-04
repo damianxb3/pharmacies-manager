@@ -1,0 +1,22 @@
+.alert {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.alert.alert-info {
+  color: #607D8B;
+}
+
+.alert.alert-error {
+  color: red;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.panel {
+  margin-top: 10%;
+  padding: 24px;
+}

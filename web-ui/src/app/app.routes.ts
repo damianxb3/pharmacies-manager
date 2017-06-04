@@ -8,11 +8,16 @@ import {WorkerAddComponent} from "./workers/add/worker-add.component";
 import {MedicineAddComponent} from "./medicines/add/medicine-add.component";
 import {MedicineItemComponent} from "./medicineItem/medicineItem.component";
 import {PharmacyAddComponent} from "./pharmacies/add/pharmacy-add.component";
+import {LoginComponent} from "./login/login.component";
 
 export const appRoutes: Routes = [
   {
     path: 'home',
     redirectTo: 'medicines'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'medicines',
