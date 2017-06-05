@@ -1,36 +1,31 @@
-<div>
-  <h2>Dodanie pracownika</h2>
-  <div>
-    <div>
-      <label>Imię: </label>
-      <input #workerFirstName  placeholder="Wprowadź imię..." />
+<div class="container">
+  <h2>Dodaj pracownika</h2>
+  <form (ngSubmit)="onSubmit()" #addWorkerForm="ngForm" >
+    <div class="form-group">
+      <label for="first-name">Imię: </label>
+      <input class="form-control" id="first-name" name="first-name" [(ngModel)]="worker.firstName" required />
     </div>
-  </div>
-  <div>
-    <div>
-      <label>Nazwisko: </label>
-      <input #workerLastName  placeholder="Wprowadź nazwisko..." />
+    <div class="form-group">
+      <label for="last-name">Nazwisko:</label>
+      <input class="form-control" id="last-name" name="last-name"  [(ngModel)]="worker.lastName" required />
     </div>
-
-    <div class="column small-12 large-2">
-      <label class="sbw_light">Rola:</label><br />
-      <select #roleName>
-        <option *ngFor="let role of roles" value= {{role}}>
-          {{role}}
-        </option>
+    <div class="form-group">
+      <label for="role">Rola:</label>
+      <select class="form-control" id="role" name="role" [(ngModel)]="worker.role" required>
+        <option *ngFor="let role of roles" value= {{role}}>{{role}}</option>
       </select>
     </div>
-
-    <div class="column small-12 large-2">
-      <label class="sbw_light">Apteka:</label><br />
-      <select #pharmacyId>
-        <option *ngFor="let pharmacy of pharmacies" value= {{pharmacy.id}} >
+    <div class="form-group">
+      <label for="workplace">Apteka:</label>
+      <select class="form-control" id="workplace" name="workplace" [(ngModel)]="worker.workplaceId" required>
+        <option *ngFor="let pharmacy of pharmacies" value={{pharmacy.id}} >
           {{pharmacy.address.city + ' ul. ' + pharmacy.address.street + ' ' + pharmacy.address.number}}
         </option>
       </select>
     </div>
-
-    <button (click)="add(workerFirstName.value, workerLastName.value, roleName.value, pharmacyId.value); workerFirstName.value=workerLastName.value=''">Dodaj pracowanika</button>
-    <button (click)="goBack()">Powrot</button>
-  </div>
+    <div *ngIf="added" class="alert alert-success" role="alert">Pracownik został dodany</div>
+    <div *ngIf="error" class="alert alert-danger" role="alert">Błąd podczas dodawania pracownika</div>
+    <button type="submit" class="btn btn-success" [disabled]="!addWorkerForm.form.valid">Dodaj pracownika</button>
+    <button class="btn btn-default" (click)="goBack()">Powrot</button>
+  </form>
 </div>

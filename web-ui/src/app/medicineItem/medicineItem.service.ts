@@ -7,14 +7,11 @@ import {MedicineItem} from "./medicineItem";
 @Injectable()
 export class MedicineItemService {
 
-  private headers = new Headers({'Content-Type': 'application/json'});
-
   constructor(private http: Http) {
   }
 
   getList(id: number): Promise<MedicineItem[]> {
-    const url = '/api/medicineItem/getByPhar/'+id;
-    return this.http.get(url)
+    return this.http.get('/api/medicineItem/getByPhar/'+id)
       .toPromise()
       .then(response => response.json() as MedicineItem[])
       .catch(this.handleError);

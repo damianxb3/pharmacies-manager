@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import 'rxjs/add/operator/switchMap';
-import { Location } from '@angular/common';
+import {Component, OnInit} from "@angular/core";
+import "rxjs/add/operator/switchMap";
+import {Location} from "@angular/common";
 import {Medicine} from "../medicine";
 import {MedicinesService} from "../medicines.service";
-import {ActivatedRoute, Params, Route} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 
 
 @Component ({
@@ -15,6 +15,8 @@ import {ActivatedRoute, Params, Route} from "@angular/router";
 export class MedicineModifyComponent implements OnInit{
 
   medicine: Medicine = new Medicine();
+  modified: boolean = false;
+  error: boolean = false;
 
   constructor(
     private medicinesService: MedicinesService,
@@ -27,13 +29,10 @@ export class MedicineModifyComponent implements OnInit{
       .subscribe(medicine => this.medicine = medicine);
   }
 
-  modify(presc: string): void {
-    if(presc === 'Tak')
-      this.medicine.prescriptionRequired = true;
-    else
-      this.medicine.prescriptionRequired = false;
-
-    this.medicinesService.modifyMedicine(this.medicine);
+  modify(): void {
+    this.medicinesService.modifyMedicine(this.medicine)
+      .then(() => this.modified = true)
+      .catch(() => this.error = true);
   }
 
   goBack(): void {

@@ -1,25 +1,27 @@
-<h2>Apteki</h2>
-<div class="panel panel-default">
-  <div class="panel-heading">Wszystkie apteki:</div>
-  <table class="table">
-    <tr>
-      <td><strong>#</strong></td>
-      <td><strong>Miasto</strong></td>
-      <td><strong>Ulica</strong></td>
-      <td><strong>Numer</strong></td>
-    </tr>
-    <tr *ngFor="let pharmacy of pharmacies">
-      <td><strong>{{pharmacy.id}}</strong></td>
-      <td>{{pharmacy.address.city}}</td>
-      <td>{{pharmacy.address.street}}</td>
-      <td>{{pharmacy.address.number}}</td>
-      <td><button class="button" class="btn btn-default" (click)="deletePharmacy(pharmacy.id)">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-      </button></td>
-  </table>
-  <div class="col-md-2 col-md-offset-5 mt-8">
-  <a id="addPharmacy" class="nav-link" routerLink="/pharmacies/add" routerLinkActive="active">
-    <button class="btn btn-default">Dodaj nową aptekę</button>
-  </a>
+<div class="container">
+  <h2>Apteki</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">Wszystkie apteki:</div>
+    <table class="table">
+      <tr>
+        <td><strong>#</strong></td>
+        <td><strong>Miasto</strong></td>
+        <td><strong>Ulica</strong></td>
+        <td><strong>Numer</strong></td>
+      </tr>
+      <tr *ngFor="let pharmacy of pharmacies">
+        <td><strong>{{pharmacy.id}}</strong></td>
+        <td>{{pharmacy.address.city}}</td>
+        <td>{{pharmacy.address.street}}</td>
+        <td>{{pharmacy.address.number}}</td>
+        <td><button class="button" class="btn btn-default" (click)="deletePharmacy(pharmacy.id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button></td>
+    </table>
+    <div class="col-md-2 col-md-offset-5 mt-8">
+      <a id="addPharmacy" class="nav-link" routerLink="/pharmacies/add" routerLinkActive="active">
+        <button class="btn btn-default">Dodaj nową aptekę</button>
+      </a>
+    </div>
   </div>
 </div>

@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
-import {Location} from '@angular/common';
+import {Component} from "@angular/core";
 
-import {Medicine} from '../medicine'
-import {MedicinesService} from '../medicines.service'
+import {Medicine} from "../medicine";
+import {MedicinesService} from "../medicines.service";
 
 @Component({
   selector: 'app-medicine-add',
@@ -12,16 +11,17 @@ import {MedicinesService} from '../medicines.service'
 
 export class MedicineAddComponent {
   added = false;
+  error = false;
   medicine: Medicine = new Medicine();
 
   constructor(
     private medicinesService: MedicinesService,
-    private location: Location
   ) {}
 
   onSubmit(): void {
     console.log(this.medicine);
     this.medicinesService.addMedicine(this.medicine)
-      .then(() => this.added = true);
+      .then(() => this.added = true)
+      .catch(() => this.error = true)
   }
 }
