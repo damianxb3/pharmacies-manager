@@ -1,7 +1,13 @@
 package com.pik01.pharmaciesmanager.app.medicine;
 
 import com.pik01.pharmaciesmanager.app.medicine.model.Medicine;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -21,14 +27,15 @@ public class MedicineController {
 
     @GetMapping("/{id}")
     public Medicine get(@PathVariable("id") int id) {
-        Long idLong = Long.valueOf(id);
-        return medicineService.get(idLong);
+        return medicineService.get((long) id);
     }
 
     @PutMapping("/modify")
-    public Medicine modify(@RequestBody Medicine medicine) { return medicineService.modify(medicine); }
+    public Medicine modify(@RequestBody Medicine medicine) {
+        return medicineService.modify(medicine);
+    }
 
-    @PostMapping("/add")
+    @PutMapping("/add")
     public Medicine addMed(@RequestBody Medicine medicine) {
         return medicineService.addMedicine(medicine);
     }

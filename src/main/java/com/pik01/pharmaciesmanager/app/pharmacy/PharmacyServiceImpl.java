@@ -15,7 +15,7 @@ public class PharmacyServiceImpl implements PharmacyService {
 
     @Override
     public List<Pharmacy> getAll() {
-        return pharmacyRepository.findAll();
+        return pharmacyRepository.findAllByOrderByAddress_City();
     }
 
     @Override

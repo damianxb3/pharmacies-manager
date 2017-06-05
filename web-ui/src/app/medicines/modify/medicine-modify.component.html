@@ -1,39 +1,41 @@
-<div>
+<div class="container">
   <h2>Modyfikacja leku</h2>
-  <div>
-    <div>
-      <label>Nazwa:</label>
-      <input [(ngModel)]="medicine.name" #name />
+  <form (ngSubmit)="onSubmit()" #modifyMedicineForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nazwa:</label>
+      <input class="form-control" id="name" name="name" [(ngModel)]="medicine.name" required />
     </div>
-    <div>
-      <label>Cena: </label>
-      <input [(ngModel)]="medicine.price" #price />
+    <div class="form-group">
+      <label for="price">Cena: </label>
+      <input class="form-control" id="price" name="price" [(ngModel)]="medicine.price" required />
     </div>
-    <div>
-      <label>Rozmiar: </label>
-      <input [(ngModel)]="medicine.size" #size  />
+    <div class="form-group">
+      <label for="size">Rozmiar: </label>
+      <input class="form-control" id="size" name="size" [(ngModel)]="medicine.size" required />
     </div>
-    <div>
-      <label>Składniki: </label>
-      <input [(ngModel)]="medicine.ingredients" #ing  />
+    <div class="form-group">
+      <label for="ingredients">Składniki: </label>
+      <input class="form-control" id="ingredients" name="ingredients" [(ngModel)]="medicine.ingredients" />
     </div>
-    <div>
-      <label>Użycie: </label>
-      <input [(ngModel)]="medicine.usage" #usage  />
+    <div class="form-group">
+      <label for="usage">Użycie: </label>
+      <input class="form-control" id="usage" name="usage" [(ngModel)]="medicine.usage" />
     </div>
-    <div>
-      <label>Przeciwwskazania: </label>
-      <input [(ngModel)]="medicine.contraindications" #contra  />
+    <div class="form-group">
+      <label for="contraindications">Przeciwwskazania: </label>
+      <input class="form-control" id="contraindications" name="contraindications" [(ngModel)]="medicine.contraindications" />
     </div>
-    <div>
-      <label>Wymagana recepta: </label>
-      <select   #presc>
-        <option >Tak</option>
-        <option >Nie</option>
+    <div class="form-group">
+      <label for="prescription-required">Wymagana recepta: </label>
+      <select class="form-control" id="prescription-required" name="prescription-required" [(ngModel)]="medicine.prescriptionRequired" required>
+        <option [value]=true>Tak</option>
+        <option [value]=false>Nie</option>
       </select>
     </div>
-    <button (click)="modify(presc.value)">Modyfikuj</button>
-    <button (click)="goBack()">Powrot</button>
-  </div>
+    <div *ngIf="modified" class="alert alert-success">Lek został zmodyfikowany</div>
+    <div *ngIf="error" class="alert alert-danger">Błąd podczas modyfikacji leku</div>
+    <button class="btn btn-success" (click)="modify()">Modyfikuj</button>
+    <button class="btn btn-default" (click)="goBack()">Powrot</button>
+  </form>
 
 </div>

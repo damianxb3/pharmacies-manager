@@ -14,14 +14,18 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public List<Medicine> getAll() {
-        return medicineRepository.findAll();
+        return medicineRepository.findAllByOrderByName();
     }
 
     @Override
-    public Medicine get(Long id) { return medicineRepository.findOne(id); }
+    public Medicine get(Long id) {
+        return medicineRepository.findOne(id);
+    }
 
     @Override
-    public Medicine modify(Medicine medicine) { return medicineRepository.save(medicine); }
+    public Medicine modify(Medicine medicine) {
+        return medicineRepository.save(medicine);
+    }
 
     @Override
     public Medicine addMedicine(Medicine medicine) {
@@ -29,6 +33,8 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public void delete(Long id) { medicineRepository.delete(id);}
+    public void delete(Long id) {
+        medicineRepository.delete(id);
+    }
 
 }

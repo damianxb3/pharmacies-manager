@@ -1,29 +1,31 @@
-<h2>Pracownicy</h2>
-<div class="panel panel-default">
-  <div class="panel-heading">Wszyscy pracownicy:</div>
-  <table class="table">
-    <tr>
-      <td><strong>#</strong></td>
-      <td><strong>Imię</strong></td>
-      <td><strong>Nazwisko</strong></td>
-      <td><strong>Rola</strong></td>
-      <td><strong>Apteka</strong></td>
-    </tr>
-    <tr *ngFor="let worker of workers">
-      <td><strong>{{worker.id}}</strong></td>
-      <td>{{worker.firstName}}</td>
-      <td>{{worker.lastName}}</td>
-      <td>{{worker.role}}</td>
-      <td>{{worker.workplace.address.city + ' ul. ' + worker.workplace.address.street + ' ' + worker.workplace.address.number}}</td>
-      <td>
-        <button class="btn btn-default" (click)="deleteWorker(worker.id)">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        </button>
-      </td>
-  </table>
-</div><div>
-  <a class="nav-link" routerLink="/worker/add" routerLinkActive="active">
-    <button class="btn btn-default">Dodaj pracownika</button>
-  </a>
+<div class="container">
+  <h2>Pracownicy</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">Wszyscy pracownicy:</div>
+    <table class="table">
+      <tr>
+        <td><strong>#</strong></td>
+        <td><strong>Imię</strong></td>
+        <td><strong>Nazwisko</strong></td>
+        <td><strong>Rola</strong></td>
+        <td><strong>Apteka</strong></td>
+      </tr>
+      <tr *ngFor="let worker of workers">
+        <td><strong>{{worker.id}}</strong></td>
+        <td>{{worker.firstName}}</td>
+        <td>{{worker.lastName}}</td>
+        <td>{{worker.role}}</td>
+        <td>{{worker.workplace.address.city + ' ul. ' + worker.workplace.address.street + ' ' + worker.workplace.address.number}}</td>
+        <td>
+          <button class="btn btn-default" (click)="deleteWorker(worker.id)">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+        </td>
+    </table>
+  </div>
+  <div class="col-md-2 col-md-offset-5 mt-8">
+    <a class="nav-link" routerLink="/worker/add" routerLinkActive="active">
+      <button class="btn btn-default">Dodaj pracownika</button>
+    </a>
+  </div>
 </div>
-

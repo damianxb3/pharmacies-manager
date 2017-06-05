@@ -20,7 +20,7 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public List<Worker> getAll() {
-        return workerRepository.findAll();
+        return workerRepository.findAllByOrderByLastName();
     }
 
     @Override

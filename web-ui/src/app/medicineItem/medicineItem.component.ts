@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MedicineItemService } from './medicineItem.service';
-
-import {Router} from "@angular/router";
+import {Component, OnInit} from "@angular/core";
+import {MedicineItemService} from "./medicineItem.service";
 import {Pharmacy} from "../pharmacies/pharmacy";
 import {PharmaciesService} from "../pharmacies/pharmacies.service";
 import {MedicineItem} from "./medicineItem";
-import {MedicinesService} from "../medicines/medicines.service";
 
 @Component({
   selector: 'app-medicineitem',

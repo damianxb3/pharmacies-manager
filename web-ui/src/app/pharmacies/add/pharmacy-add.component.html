@@ -14,6 +14,7 @@
       <input class="form-control" [(ngModel)]="pharmacy.address.number" id="number" name="number" required />
     </div>
     <div *ngIf="added" class="alert alert-success" role="alert">Apteka została dodana</div>
+    <div *ngIf="error" class="alert alert-danger" role="alert">Błąd podczas dodawania apteki</div>
     <button type="submit" class="btn btn-success" [disabled]="!addPharmacyForm.form.valid">Dodaj</button>
   </form>
 </div>

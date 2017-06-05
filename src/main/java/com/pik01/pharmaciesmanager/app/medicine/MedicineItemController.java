@@ -19,8 +19,6 @@ public class MedicineItemController {
 
     @GetMapping("/getByPhar/{id}")
     public List<MedicineItem> get(@PathVariable("id") long id) {
-        System.out.println("in get by phar");
-
         return medicineItemService.getByPhar(id);
     }
 }

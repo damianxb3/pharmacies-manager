@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {Location} from '@angular/common';
+import {Component} from "@angular/core";
 import {Pharmacy} from "../pharmacy";
 import {PharmaciesService} from "../pharmacies.service";
 
@@ -11,16 +10,17 @@ import {PharmaciesService} from "../pharmacies.service";
 })
 
 export class PharmacyAddComponent {
-  added = false;
+  added: boolean = false;
+  error: boolean = false;
   pharmacy: Pharmacy = new Pharmacy();
 
   constructor(
     private pharmaciesService: PharmaciesService,
-    private location: Location
   ) {}
 
   onSubmit(): void {
     this.pharmaciesService.addPharmacy(this.pharmacy)
-      .then(() => this.added = true);
+      .then(() => this.added = true)
+      .catch(() => this.error = true);
   }
 }
